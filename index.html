@@ -104,6 +104,9 @@
         box-shadow: 0 25px 50px -12px rgba(232, 49, 107, 0.15);
       }
 
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
       ::-webkit-scrollbar { width: 8px; }
       ::-webkit-scrollbar-track { background: #f1f1f1; }
       ::-webkit-scrollbar-thumb { background: #E8316B; border-radius: 10px; }
@@ -332,10 +335,21 @@
             <div class="space-y-4 text-gray-300 text-lg leading-relaxed font-light">
               <p>For years, Gautam Classes has been the name that students trust, parents believe in, and results speak for! From every exam cracked to every dream achieved — we have been there, guiding, pushing, and never giving up! 💪🎓</p>
               
-              <div class="bg-gradient-to-r from-primary to-primary-dark p-6 rounded-2xl shadow-xl transform hover:-translate-y-1 transition-all">
-                <p class="font-bold text-white text-xl lg:text-2xl">
-                  🎁 First 50 Students Get <span class="text-yellow-300">50% Scholarship</span> on Admission Fees!
-                </p>
+              <div class="relative bg-gradient-to-br from-[#1E293B] to-dark p-1 rounded-2xl shadow-2xl overflow-hidden group transform hover:-translate-y-1 transition-all">
+                <!-- Glowing border effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-primary via-yellow-400 to-primary opacity-50 blur-lg group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Inner Container -->
+                <div class="relative bg-gradient-to-r from-primary to-primary-dark p-6 rounded-xl border border-white/20 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                  <div class="w-16 h-16 shrink-0 bg-white/20 rounded-full flex items-center justify-center border-2 border-dashed border-yellow-300 relative">
+                    <span class="text-3xl animate-bounce mt-1">🎁</span>
+                  </div>
+                  <div>
+                    <h4 class="font-heading text-yellow-300 font-extrabold tracking-widest uppercase text-xs mb-1">Early Bird Offer</h4>
+                    <p class="font-bold text-white text-xl lg:text-2xl leading-tight">
+                      First 50 Students Get <span class="text-yellow-300 bg-white/10 px-2 py-0.5 rounded-md inline-block border border-yellow-300/30">50% Scholarship</span> on Admission Fees!
+                    </p>
+                  </div>
+                </div>
               </div>
 
               <p>We believe every student deserves the best, no matter where they are. Distance should never come between a student and their dreams. We are bringing our legacy to your doorstep! ❤️</p>
@@ -348,19 +362,24 @@
             </ul>
 
             <div class="pt-6">
-              <a href="tel:+919327701195" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-secondary font-extrabold hover:bg-gray-50 shadow-xl hover:-translate-y-1 transition-all border border-gray-100">
-                <i class="fas fa-bolt text-yellow-500 animate-pulse text-xl"></i>
-                <span>Enroll Now Before Seats Fill Up!</span>
-                <i class="fas fa-arrow-right text-primary group-hover:translate-x-1.5 transition-transform text-lg"></i>
+              <a href="tel:+919327701195" class="group inline-flex items-center gap-2 md:gap-3 px-5 md:px-8 py-3 md:py-4 rounded-full bg-white text-secondary font-extrabold hover:bg-gray-50 shadow-xl hover:-translate-y-1 transition-all border border-gray-100">
+                <i class="fas fa-bolt text-yellow-500 animate-pulse text-lg md:text-xl"></i>
+                <span class="whitespace-nowrap text-sm md:text-base">Enroll Now Before Seats Fill Up!</span>
+                <i class="fas fa-arrow-right text-primary group-hover:translate-x-1.5 transition-transform text-base md:text-lg"></i>
               </a>
             </div>
           </div>
           
           <!-- Instagram Reel Embed -->
-          <div class="flex justify-center lg:justify-end w-full overflow-hidden">
-            <div class="w-full max-w-[340px] md:max-w-sm bg-white p-1 md:p-2 rounded-[2rem] shadow-2xl mx-auto lg:mx-0 overflow-hidden">
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DY3xNpPpev4/" data-instgrm-version="14" style="background:#FFF; border:0; border-radius:1.5rem; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:260px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
-              <script async src="//www.instagram.com/embed.js"></script>
+          <div class="flex justify-center lg:justify-end w-full">
+            <div class="relative mx-auto lg:mx-0 bg-white p-1 sm:p-2 rounded-[2rem] shadow-2xl transform hover:-translate-y-2 transition-transform duration-500 max-w-[360px] md:max-w-[380px] w-full">
+              <!-- Frame Inner -->
+              <div class="rounded-[1.5rem] overflow-hidden w-full h-[540px] sm:h-[610px] bg-white relative z-10 border border-gray-100 flex items-start">
+                <div class="w-full mt-[-2px] mb-[-65px]">
+                  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DY3xNpPpev4/" data-instgrm-version="14" style="background:#FFF; border:0; margin:0; padding:0; width:100%; min-width:100% !important; max-width:100% !important;"></blockquote>
+                </div>
+                <script async src="//www.instagram.com/embed.js"></script>
+              </div>
             </div>
           </div>
           
@@ -883,6 +902,11 @@
         <span class="text-[9px] uppercase font-medium text-white/90 tracking-widest"><span class="w-1.5 h-1.5 inline-block rounded-full bg-yellow-300 animate-pulse mr-1"></span>Only 12 Slots Left</span>
       </a>
     </div>
+    <!-- ========== FLOATING WHATSAPP BUTTON ========== -->
+    <a href="https://wa.me/919327701195" target="_blank" class="fixed bottom-24 md:bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:-translate-y-1 hover:scale-110 transition-all duration-300 z-50 animate-bounce">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
       const btn = document.getElementById('mobile-menu-button');
       const menu = document.getElementById('mobile-menu');
