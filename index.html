@@ -111,6 +111,7 @@
       ::-webkit-scrollbar-track { background: #f1f1f1; }
       ::-webkit-scrollbar-thumb { background: #E8316B; border-radius: 10px; }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
   </head>
   <body>
     <!-- ========== TOP BAR ========== -->
@@ -717,29 +718,42 @@
           <p class="text-gray-500 mt-4">Our students consistently make us proud with their outstanding board results.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6" id="lightgallery">
           <!-- Main Achievement Image -->
-          <div class="md:col-span-8 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[400px] group">
+          <a href="achievement.png" class="block md:col-span-8 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[400px] group cursor-pointer">
             <img src="achievement.png" alt="Student Achievements" class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent flex items-end p-8">
               <h3 class="font-heading text-3xl font-bold text-white relative z-10">Record-Breaking Results</h3>
             </div>
-          </div>
+            <!-- Hover zoom icon -->
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+              <i class="fas fa-search-plus text-white text-4xl shadow-sm"></i>
+            </div>
+          </a>
           
           <!-- News 1 -->
-          <div class="md:col-span-4 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[400px] group">
+          <a href="weareonnews.png" class="block md:col-span-4 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[400px] group cursor-pointer">
             <img src="weareonnews.png" alt="In the News" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
-          </div>
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+              <i class="fas fa-search-plus text-white text-4xl shadow-sm"></i>
+            </div>
+          </a>
 
           <!-- News 2 -->
-          <div class="md:col-span-6 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[300px] group">
+          <a href="newspaper2.png" class="block md:col-span-6 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[300px] group cursor-pointer">
             <img src="newspaper2.png" alt="Newspaper Coverage" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700" />
-          </div>
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+              <i class="fas fa-search-plus text-white text-4xl shadow-sm"></i>
+            </div>
+          </a>
 
           <!-- News 3 -->
-          <div class="md:col-span-6 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[300px] group">
+          <a href="newspapper3.png" class="block md:col-span-6 relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white h-[300px] group cursor-pointer">
             <img src="newspapper3.png" alt="Newspaper Coverage" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700" />
-          </div>
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
+              <i class="fas fa-search-plus text-white text-4xl shadow-sm"></i>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -972,6 +986,16 @@
       if (statsSection) {
         observer.observe(statsSection);
       }
+    </script>
+    
+    <!-- LightGallery scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script>
+      lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom],
+        speed: 500,
+      });
     </script>
   </body>
 </html>
