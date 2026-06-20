@@ -291,23 +291,23 @@
     </section>
 
     <!-- ========== STATS BAND ========== -->
-    <section class="bg-secondary relative z-20">
+    <section class="bg-secondary relative z-20" id="stats">
       <div class="max-w-7xl mx-auto px-6 py-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
           <div class="text-center px-4">
-            <h4 class="font-heading text-4xl font-extrabold text-white mb-1">99<span class="text-primary">%</span></h4>
+            <h4 class="font-heading text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="99">0</span><span class="text-primary">%</span></h4>
             <p class="text-primary-light text-xs font-bold uppercase tracking-wider">Success Rate</p>
           </div>
           <div class="text-center px-4">
-            <h4 class="font-heading text-4xl font-extrabold text-white mb-1">15<span class="text-primary">+</span></h4>
+            <h4 class="font-heading text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="15">0</span><span class="text-primary">+</span></h4>
             <p class="text-primary-light text-xs font-bold uppercase tracking-wider">Years Legacy</p>
           </div>
           <div class="text-center px-4">
-            <h4 class="font-heading text-4xl font-extrabold text-white mb-1">45<span class="text-primary">+</span></h4>
+            <h4 class="font-heading text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="45">0</span><span class="text-primary">+</span></h4>
             <p class="text-primary-light text-xs font-bold uppercase tracking-wider">Expert Teachers</p>
           </div>
           <div class="text-center px-4">
-            <h4 class="font-heading text-4xl font-extrabold text-white mb-1">100<span class="text-primary">+</span></h4>
+            <h4 class="font-heading text-4xl font-extrabold text-white mb-1"><span class="counter" data-target="100">0</span><span class="text-primary">+</span></h4>
             <p class="text-primary-light text-xs font-bold uppercase tracking-wider">District Toppers</p>
           </div>
         </div>
@@ -878,7 +878,7 @@
       <a href="tel:+919327701195" class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-gray-100 text-secondary rounded-xl text-xl">
         <i class="fas fa-phone-alt"></i>
       </a>
-      <a href="#hero" class="flex-1 bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl font-bold flex flex-col items-center justify-center text-sm shadow-lg shadow-primary/30 py-1">
+      <a href="tel:+919327701195" class="flex-1 bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl font-bold flex flex-col items-center justify-center text-sm shadow-lg shadow-primary/30 py-1">
         <span>Request Callback</span>
         <span class="text-[9px] uppercase font-medium text-white/90 tracking-widest"><span class="w-1.5 h-1.5 inline-block rounded-full bg-yellow-300 animate-pulse mr-1"></span>Only 12 Slots Left</span>
       </a>
@@ -912,6 +912,42 @@
           icon.classList.add('fa-bars');
         });
       });
+
+      // Counter Animation
+      const counters = document.querySelectorAll('.counter');
+      const animateCounters = () => {
+        counters.forEach(counter => {
+          const target = +counter.getAttribute('data-target');
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60fps approx
+
+          let current = 0;
+          const updateCount = () => {
+            current += increment;
+            if (current < target) {
+              counter.innerText = Math.ceil(current);
+              requestAnimationFrame(updateCount);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const statsSection = document.getElementById('stats');
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
     </script>
   </body>
 </html>
